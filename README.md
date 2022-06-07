@@ -145,3 +145,8 @@ def show_kwargs(**kwargs):
 8. [利用socket模块实现一个简单的http server,要求可以接受客户端的请球，并能将请求体中携带的内容记录下来。](https://github.com/tianrking/0607/blob/master/08.py)
 
 9. [实现以下功能：每隔1个小时，获取代码所在服务器的CPU核数、内存大小、IP地址，并将获取到的信息以邮件形式发送出去。](https://github.com/tianrking/0607/blob/master/09.py)
+
+
+    crontab 
+
+    0 0 * * *  python3 /workspace/09.py >> ~/py1.log
