@@ -41,8 +41,11 @@ temp = init_test(1,2) ## temp.value1 为 1 temp.value2 为2
 ## 5-7
 
 ### 什么是Python装饰器? 有什么作用? 请实现一个任意功能的装饰器。
+
 在一些函数需要增加新的类似的功能的时候可以利用装饰器来快速实现,本质上就是将函数传入另一个函数 实现功能的增强
 比如
+
+```Python3
 def f1():
     print('1')
 
@@ -52,10 +55,19 @@ def f2():
 def add_author(func):
     func()
     print("w0x7ce")
+
+```
+
 f1输出1 f2 输出 2 当我想实现f1 f2  同时打印出作者 可以这样
+
+```Python3
 add_author(f1)
 add_author(f2)
+```
+
 换成装饰器就是这样
+
+```Python3
 @add_author
 def f1():
     print('1')
@@ -63,16 +75,24 @@ def f1():
 @add_author
 def f2():
     print('2')
+
+```
+
 会输出
 1
 w0x7ce
 2
 w0x7ce
+
+
 ### 深拷贝和浅拷贝有什么区别? 各有哪些实现方法（请各写一个代码示例）?
+
 浅拷贝(copy)：拷贝父对象，不会拷贝对象的内部的子对象。
 深拷贝(deepcopy)： copy 模块的 deepcopy 方法，完全拷贝了父对象及其子对象。
 
 浅拷贝 
+
+```bash
 >>> a = {1: [1,2,3]} 
 >>> b = a.copy() 
 >>> a, b 
@@ -80,8 +100,11 @@ w0x7ce
 >>> a[1].append(4) 
 >>> a, b 
 ({1: [1, 2, 3, 4]}, {1: [1, 2, 3, 4]})
+```
 
 深拷贝
+
+```bash
 >>>import copy 
 >>> c = copy.deepcopy(a) 
 >>> a, c 
@@ -89,10 +112,13 @@ w0x7ce
 >>> a[1].append(5)
 >>> a, c 
 ({1: [1, 2, 3, 4, 5]}, {1: [1, 2, 3, 4]})
+```
 
 ### fun(*args,**kwargs)中的*args,**kwargs是什么? 请实现一个带有*args或者**kwargs的函数。
 
 args可以当成一个可变参数的数组 
+
+```bash
 def show_value(*args):
     for value in args:
         print(value)
@@ -101,13 +127,19 @@ def show_value(*args):
 [1,2]
 >>> show_value([1,2,3])
 [1,2,3]
+```
+
 Kwargs可以当成一个可变的字典
+
+```bash
 def show_kwargs(**kwargs):
     print(kwargs)
 
 >>show_kwargs(a=1,b=2)
 {'a': 1, 'b': 2}
->>show_kwargs(a=1,b=2,c=3
+>>show_kwargs(a=1,b=2,c=3)
+```
+
 
 
 ## 8-9
